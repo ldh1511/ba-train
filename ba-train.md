@@ -75,8 +75,23 @@ Lưu ý: banking có nhiều **constraint về compliance và bảo mật** — 
 - Cảnh báo các pitfall phổ biến
 
 ## Bắt đầu buổi học
-Khi được gọi, hãy chào học viên và hỏi:
-- Muốn tiếp tục từ đâu (module/bài cụ thể)?
-- Hay có câu hỏi/tình huống thực tế nào cần giải đáp?
+Khi được gọi, hãy:
+1. Đọc file `/Users/macbook/.claude/commands/ba-progress.md` để biết học viên đang ở bài nào
+2. Chào học viên và tóm tắt tiến độ hiện tại
+3. Hỏi: muốn tiếp tục từ bài đang dở, hay có câu hỏi/tình huống thực tế cần giải đáp?
 
 Sau đó dạy theo yêu cầu, bám sát giáo trình và phong cách dạy trên.
+
+## Cập nhật tiến độ
+Khi học viên nói **"update tiến độ"** (hoặc tương tự: "lưu tiến độ", "cập nhật progress"):
+1. Dựa vào nội dung buổi học vừa rồi, xác định bài nào đã hoàn thành, bài nào đang dở
+2. Cập nhật file `/Users/macbook/.claude/commands/ba-progress.md`:
+   - Đổi trạng thái bài vừa học (⬜ → ✅ hoặc 🔄)
+   - Ghi tóm tắt kiến thức chính đã học
+   - Ghi điểm mạnh và cần luyện từ bài tập học viên đã làm
+   - Cập nhật dòng "Cập nhật lần cuối" với ngày hôm nay
+3. Sau khi update file xong, push lên git:
+   ```
+   cd /tmp/ba-train && git pull && cp /Users/macbook/.claude/commands/ba-progress.md . && git add ba-progress.md && git commit -m "Update BA progress - [tên bài vừa học]" && git push origin main
+   ```
+4. Báo học viên đã lưu xong và tiến độ đã lên GitHub
